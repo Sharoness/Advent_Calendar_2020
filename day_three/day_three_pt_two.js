@@ -6,6 +6,7 @@ let rl = readline.createInterface({
     terminal: false
 });
 
+const THREE_CHARACTER = "#";
 let indexOne = 0;
 let indexTwo = 0;
 let indexThree = 0;
@@ -19,20 +20,20 @@ let numbersOfTreesFour = 0;
 let numbersOfTreesFive = 0;
 
 rl.on("line", function(line){
-    if (line[indexOne%line.length] === "#") {
+    if (line[indexOne%line.length] === THREE_CHARACTER) {
         numbersOfTreesOne++;
     }
-    if (line[indexTwo%line.length] === "#") {
+    if (line[indexTwo%line.length] === THREE_CHARACTER) {
         numbersOfTreesTwo++;
     }
-    if (line[indexThree%line.length] === "#") {
+    if (line[indexThree%line.length] === THREE_CHARACTER) {
         numbersOfTreesThree++;
     }
-    if (line[indexFour%line.length] === "#") {
+    if (line[indexFour%line.length] === THREE_CHARACTER) {
         numbersOfTreesFour++;
     }
     if (toggleActionFive) {
-        if (line[indexFive%line.length] === "#") {
+        if (line[indexFive%line.length] === THREE_CHARACTER) {
             numbersOfTreesFive++;
         }
         indexFive += 1;
