@@ -6,13 +6,20 @@ let rl = readline.createInterface({
     terminal: false
 });
 
-let numbers = {};
-
+var arr = []
 rl.on("line", function(line){
-    let neededNumber = 2020 - line;
-    if (numbers[neededNumber]){
-        console.log(neededNumber * line);
-        exit(0);
+    arr.push(parseInt(line));
+})
+
+rl.on('close', () => {
+    for(let i = 0; i < arr.length ; i ++) {
+        for(let j = i; j < arr.length ; j ++) {
+            for(let k = j; k < arr.length ; k ++) {
+                if ( arr[i] + arr[j] + arr[k] === 2020) {
+                    console.log(arr[i] * arr[j] * arr[k]);
+                    exit(0);
+                }
+            }
+        }
     }
-    numbers[line] = true;
 })
