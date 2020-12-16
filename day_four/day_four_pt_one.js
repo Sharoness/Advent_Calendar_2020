@@ -22,18 +22,20 @@ function addToPassport() {
 }
 
 rl.on("line", function(line){
+    // Empty line = end of passport
     if (!line) { 
         countIfPassportValid(currentPassport);
         currentPassport = {};
         return;
     }
-     // IF LINE HAS NO SPACE
+    // Lines with content
+    // If line has no space
     if (line.indexOf(" ") === -1) { 
         passportField = readOutPassport.exec(line);
         addToPassport();
         return;
     } 
-    // IF LINE HAS HAVE SPACE
+    // If line has space
     let splittedLine = line.split(" ");
     for (var i = 0; i < splittedLine.length; i++) {
         passportField = readOutPassport.exec(splittedLine[i]);
