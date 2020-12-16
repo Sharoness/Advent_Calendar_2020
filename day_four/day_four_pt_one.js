@@ -22,13 +22,11 @@ function addToPassport() {
 }
 
 rl.on("line", function(line){
-    // lege regel -> paspoort checken
     if (!line) { 
         countIfPassportValid(currentPassport);
         currentPassport = {};
         return;
     }
-     // line/paspoort -> in paspoort doen
      // IF LINE HAS NO SPACE
     if (line.indexOf(" ") === -1) { 
         passportField = readOutPassport.exec(line);
@@ -44,8 +42,6 @@ rl.on("line", function(line){
 })
 
 rl.on("close", function(){
-    countIfPassportValid(currentPassport); // laatste regel paspoort checken
+    countIfPassportValid(currentPassport);
     console.log(numberValidPassports);
 })
-
-// 235
